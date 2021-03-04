@@ -3,11 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="42c7f5f1-5abd-4678-a739-9c5d62b77c2e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RefactoringAssignment/personnel/AddRecordDialog.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RefactoringAssignment/personnel/AddRecordDialog.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RefactoringAssignment/personnel/EmployeeDetails$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RefactoringAssignment/personnel/EmployeeDetails$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RefactoringAssignment/personnel/EmployeeDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RefactoringAssignment/personnel/EmployeeDetails.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RefactoringAssignment/personnel/EmployeeSummaryDialog.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RefactoringAssignment/personnel/EmployeeSummaryDialog.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/personnel/EmployeeDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/personnel/EmployeeDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/personnel/RandomFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/personnel/RandomFile.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,8 +33,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/personnel/EmployeeDetails.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="970" column="44" lean-forward="true" selection-start-line="970" selection-start-column="44" selection-end-line="970" selection-end-column="44" />
+            <state relative-caret-position="433">
+              <caret line="678" lean-forward="true" selection-start-line="678" selection-end-line="678" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/personnel/RandomFile.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="163">
+              <caret line="248" column="8" lean-forward="true" selection-start-line="248" selection-start-column="8" selection-end-line="248" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -45,8 +51,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/personnel/AddRecordDialog.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+            <state relative-caret-position="191">
+              <caret line="133" column="29" selection-start-line="133" selection-start-column="29" selection-end-line="133" selection-end-column="29" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -59,9 +68,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/personnel/RandomFile.java" />
         <option value="$PROJECT_DIR$/src/personnel/AddRecordDialog.java" />
         <option value="$PROJECT_DIR$/src/personnel/EmployeeSummaryDialog.java" />
+        <option value="$PROJECT_DIR$/src/personnel/RandomFile.java" />
         <option value="$PROJECT_DIR$/src/personnel/EmployeeDetails.java" />
       </list>
     </option>
@@ -189,7 +198,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.29156625" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.29036143" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -292,13 +301,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/personnel/RandomFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3555">
-          <caret line="242" column="59" selection-start-line="242" selection-start-column="59" selection-end-line="242" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/personnel/SearchBySurnameDialog.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -334,13 +336,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/personnel/AddRecordDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/personnel/EmployeeSummaryDialog.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="101">
@@ -351,10 +346,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/JZ_GDEO-EMJ06YCO2HRK.dat">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/personnel/AddRecordDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="133" column="29" selection-start-line="133" selection-start-column="29" selection-end-line="133" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/personnel/RandomFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="248" column="8" lean-forward="true" selection-start-line="248" selection-start-column="8" selection-end-line="248" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/personnel/EmployeeDetails.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="970" column="44" lean-forward="true" selection-start-line="970" selection-start-column="44" selection-end-line="970" selection-end-column="44" />
+        <state relative-caret-position="433">
+          <caret line="678" lean-forward="true" selection-start-line="678" selection-end-line="678" />
         </state>
       </provider>
     </entry>

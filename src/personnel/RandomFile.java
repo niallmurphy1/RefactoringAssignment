@@ -265,7 +265,8 @@ public class RandomFile {
 				currentByte = currentByte + RandomAccessEmployeeRecord.SIZE;
 			}// end while
 		} // end try
-		catch (IOException e) {
+		catch (IOException ignored) {
+
 		}// end catch
 
 		return ppsExist;
