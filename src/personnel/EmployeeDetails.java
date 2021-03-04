@@ -77,7 +77,7 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 	// font for labels, text fields and combo boxes
 	Font font1 = new Font("SansSerif", Font.BOLD, 16);
 	// holds automatically generated file name
-	String generatedFileName;
+	private String generatedFileName;
 	// holds current Employee object
 	Employee currentEmployee;
 	JTextField searchByIdField, searchBySurnameField;
@@ -334,7 +334,6 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 			salaryField.setText(format.format(thisEmployee.getSalary()));
 			// set corresponding full time combo box value to current employee
 
-			//TODO: simplify if condition for boolean
 			if (thisEmployee.getFullTime())
 				fullTimeCombo.setSelectedIndex(1);
 			else
@@ -540,8 +539,9 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 	private Employee getChangedDetails() {
 		boolean fullTime = false;
 		Employee theEmployee;
-		if (((String) fullTimeCombo.getSelectedItem()).equalsIgnoreCase("Yes"))
+		if (((String) fullTimeCombo.getSelectedItem()).equalsIgnoreCase("Yes")) {
 			fullTime = true;
+		}
 
 		theEmployee = new Employee(Integer.parseInt(idField.getText()), ppsField.getText().toUpperCase(),
 				surnameField.getText().toUpperCase(), firstNameField.getText().toUpperCase(),
@@ -582,11 +582,10 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 		} // end if
 	}// end deleteDecord
 
-	// create vector of vectors with all Employee details
+	 //create vector of vectors with all Employee details
 	private Vector<Employee> getAllEmloyees() {
 		// vector of Employee objects
 		Vector<Employee> allEmployee = new Vector<Employee>();
-		//TODO; make this an employee instead of a vector of employee details
 		Employee empDetails;
 
 		long byteStart = currentByteStart;
@@ -605,15 +604,6 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 					currentEmployee.getSalary(),
 					currentEmployee.getFullTime());
 
-//			empDetails.addElement(new Integer(currentEmployee.getEmployeeId()));
-//			empDetails.addElement(currentEmployee.getPps());
-//			empDetails.addElement(currentEmployee.getSurname());
-//			empDetails.addElement(currentEmployee.getFirstName());
-//			empDetails.addElement(new Character(currentEmployee.getGender()));
-//			empDetails.addElement(currentEmployee.getDepartment());
-//			empDetails.addElement(new Double(currentEmployee.getSalary()));
-//			empDetails.addElement(new Boolean(currentEmployee.getFullTime()));
-
 			allEmployee.addElement(empDetails);
 			nextRecord();// look for next record
 		} while (firstId != currentEmployee.getEmployeeId());// end do - while
@@ -621,6 +611,8 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 
 		return allEmployee;
 	}// end getAllEmployees
+
+
 
 	// activate field for editing
 	private void editDetails() {
@@ -671,13 +663,9 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 		Pattern p = Pattern.compile(regEx);
 		Matcher m = p.matcher(pps);
 
-
-		//TODO: change condition to regEx expression for a PPS no.
-
 		// check for correct PPS format based on assignment description
 		if (m.matches()){
 
-			//ppsExist = true;
 				// open file for reading
 				application.openReadFile(file.getAbsolutePath());
 				// look in file is PPS already in use
@@ -691,19 +679,24 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 			ppsExist = false;
 		}
 
-		System.out.println("Value of PPSEXIST: " + ppsExist);
-
 		return ppsExist;
 	}// end correctPPS
 
 	// check if file name has extension .dat
+
+    //
+    //TODO: apply regex on file name also
 	private boolean checkFileName(File fileName) {
+
+	    String regEx = "(\\.dat)$";
+	    Pattern p = Pattern.compile(regEx);
+	    Matcher m = p.matcher(fileName.toString());
+
 		boolean checkFile = false;
 		int length = fileName.toString().length();
 
 		// check if last characters in file name is .dat
-		if (fileName.toString().charAt(length - 4) == '.' && fileName.toString().charAt(length - 3) == 'd'
-				&& fileName.toString().charAt(length - 2) == 'a' && fileName.toString().charAt(length - 1) == 't')
+		if (m.matches())
 			checkFile = true;
 		return checkFile;
 	}// end checkFileName
