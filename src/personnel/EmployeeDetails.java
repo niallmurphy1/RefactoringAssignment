@@ -25,6 +25,8 @@ import java.nio.file.StandardCopyOption;
 import java.text.DecimalFormat;
 import java.util.Random;
 import java.util.Vector;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListCellRenderer;
@@ -331,7 +333,9 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 			departmentCombo.setSelectedIndex(countDep);
 			salaryField.setText(format.format(thisEmployee.getSalary()));
 			// set corresponding full time combo box value to current employee
-			if (thisEmployee.getFullTime() == true)
+
+			//TODO: simplify if condition for boolean
+			if (thisEmployee.getFullTime())
 				fullTimeCombo.setSelectedIndex(1);
 			else
 				fullTimeCombo.setSelectedIndex(2);
@@ -579,10 +583,12 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 	}// end deleteDecord
 
 	// create vector of vectors with all Employee details
-	private Vector<Object> getAllEmloyees() {
+	private Vector<Employee> getAllEmloyees() {
 		// vector of Employee objects
-		Vector<Object> allEmployee = new Vector<Object>();
-		Vector<Object> empDetails;// vector of each employee details
+		Vector<Employee> allEmployee = new Vector<Employee>();
+		//TODO; make this an employee instead of a vector of employee details
+		Employee empDetails;
+
 		long byteStart = currentByteStart;
 		int firstId;
 
@@ -590,15 +596,23 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 		firstId = currentEmployee.getEmployeeId();
 		// loop until all Employees are added to vector
 		do {
-			empDetails = new Vector<Object>();
-			empDetails.addElement(new Integer(currentEmployee.getEmployeeId()));
-			empDetails.addElement(currentEmployee.getPps());
-			empDetails.addElement(currentEmployee.getSurname());
-			empDetails.addElement(currentEmployee.getFirstName());
-			empDetails.addElement(new Character(currentEmployee.getGender()));
-			empDetails.addElement(currentEmployee.getDepartment());
-			empDetails.addElement(new Double(currentEmployee.getSalary()));
-			empDetails.addElement(new Boolean(currentEmployee.getFullTime()));
+			empDetails = new Employee(currentEmployee.getEmployeeId(),
+					currentEmployee.getPps(),
+					currentEmployee.getSurname(),
+					currentEmployee.getFirstName(),
+					currentEmployee.getGender(),
+					currentEmployee.getDepartment(),
+					currentEmployee.getSalary(),
+					currentEmployee.getFullTime());
+
+//			empDetails.addElement(new Integer(currentEmployee.getEmployeeId()));
+//			empDetails.addElement(currentEmployee.getPps());
+//			empDetails.addElement(currentEmployee.getSurname());
+//			empDetails.addElement(currentEmployee.getFirstName());
+//			empDetails.addElement(new Character(currentEmployee.getGender()));
+//			empDetails.addElement(currentEmployee.getDepartment());
+//			empDetails.addElement(new Double(currentEmployee.getSalary()));
+//			empDetails.addElement(new Boolean(currentEmployee.getFullTime()));
 
 			allEmployee.addElement(empDetails);
 			nextRecord();// look for next record
@@ -651,25 +665,33 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 
 	// check for correct PPS format and look if PPS already in use
 	public boolean correctPps(String pps, long currentByte) {
-		boolean ppsExist = false;
+
+		boolean ppsExist;
+		String regEx = "^(\\d{6})([A-Z])$";
+		Pattern p = Pattern.compile(regEx);
+		Matcher m = p.matcher(pps);
+
+
+		//TODO: change condition to regEx expression for a PPS no.
+
 		// check for correct PPS format based on assignment description
-		if (pps.length() == 8 || pps.length() == 9) {
-			if (Character.isDigit(pps.charAt(0)) && Character.isDigit(pps.charAt(1))
-					&& Character.isDigit(pps.charAt(2))	&& Character.isDigit(pps.charAt(3)) 
-					&& Character.isDigit(pps.charAt(4))	&& Character.isDigit(pps.charAt(5)) 
-					&& Character.isDigit(pps.charAt(6))	&& Character.isLetter(pps.charAt(7))
-					&& (pps.length() == 8 || Character.isLetter(pps.charAt(8)))) {
+		if (m.matches()){
+
+			//ppsExist = true;
 				// open file for reading
 				application.openReadFile(file.getAbsolutePath());
 				// look in file is PPS already in use
 				ppsExist = application.isPpsExist(pps, currentByte);
 				application.closeReadFile();// close file for reading
 			} // end if
-			else
-				ppsExist = true;
-		} // end if
-		else
-			ppsExist = true;
+//			else
+//				ppsExist = true;
+//		} // end if
+		else {
+			ppsExist = false;
+		}
+
+		System.out.println("Value of PPSEXIST: " + ppsExist);
 
 		return ppsExist;
 	}// end correctPPS

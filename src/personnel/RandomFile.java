@@ -239,6 +239,9 @@ public class RandomFile {
 		return thisEmp;
 	}// end readRecords
 
+
+	//TODO: find out how this works with PPS exisiting etc.
+
 	// Check if PPS Number already in use
 	public boolean isPpsExist(String pps, long currentByteStart) {
 		RandomAccessEmployeeRecord record = new RandomAccessEmployeeRecord();

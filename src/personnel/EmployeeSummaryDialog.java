@@ -28,10 +28,12 @@ import net.miginfocom.swing.MigLayout;
 
 public class EmployeeSummaryDialog extends JDialog implements ActionListener {
 	// vector with all Employees details
-	Vector<Object> allEmployees;
+	Vector<Employee> allEmployees;
 	JButton back;
-	
-	public EmployeeSummaryDialog(Vector<Object> allEmployees) {
+
+
+	//TODO:changed Vector<Object> to Vector<Employee>
+	public EmployeeSummaryDialog(Vector<Employee> allEmployees) {
 		setTitle("Employee Summary");
 		setModal(true);
 		this.allEmployees = allEmployees;
@@ -46,6 +48,7 @@ public class EmployeeSummaryDialog extends JDialog implements ActionListener {
 		setVisible(true);
 
 	}
+
 	// initialise container
 	public Container summaryPane() {
 		JPanel summaryDialog = new JPanel(new MigLayout());
@@ -65,13 +68,17 @@ public class EmployeeSummaryDialog extends JDialog implements ActionListener {
 		centerRenderer.setHorizontalAlignment(JLabel.CENTER);
 		leftRenderer.setHorizontalAlignment(JLabel.LEFT);
 
-		System.out.println("This is the EmployeeSummaryDialog class");
 		// add headers
-		for (int i = 0; i < headerName.length; i++) {
-			header.addElement(headerName[i]);
-		}// end for
+
+		//TODO: change to foreach loop
+		for (String s : headerName) {
+			header.addElement(s);
+		}
+
+		// end for
 		// construct table and choose table model for each column
-		tableModel = new DefaultTableModel(this.allEmployees, header) {
+		//TODO: changed constructor to negate error
+		tableModel = new DefaultTableModel(allEmployees.size(), headerName.length) {
 			public Class getColumnClass(int c) {
 				switch (c) {
 				case 0:
@@ -89,6 +96,8 @@ public class EmployeeSummaryDialog extends JDialog implements ActionListener {
 		};
 
 		employeeTable = new JTable(tableModel);
+
+
 		// add header names to table
 		for (int i = 0; i < employeeTable.getColumnCount(); i++) {
 			employeeTable.getColumn(headerName[i]).setMinWidth(colWidth[i]);
