@@ -32,7 +32,6 @@ public class EmployeeSummaryDialog extends JDialog implements ActionListener {
 	JButton back;
 
 
-	//TODO:changed Vector<Object> to Vector<Employee>
 	public EmployeeSummaryDialog(Vector<Employee> allEmployees) {
 		setTitle("Employee Summary");
 		setModal(true);
@@ -70,14 +69,12 @@ public class EmployeeSummaryDialog extends JDialog implements ActionListener {
 
 		// add headers
 
-		//TODO: change to foreach loop
 		for (String s : headerName) {
 			header.addElement(s);
 		}
 
 		// end for
 		// construct table and choose table model for each column
-		//TODO: changed constructor to negate error
 		tableModel = new DefaultTableModel(allEmployees.size(), headerName.length) {
 			public Class getColumnClass(int c) {
 				switch (c) {
@@ -129,7 +126,7 @@ public class EmployeeSummaryDialog extends JDialog implements ActionListener {
 		}
 
 	}
-	// format for salary column
+
 	static class DecimalFormatRenderer extends DefaultTableCellRenderer {
 		 private static final DecimalFormat format = new DecimalFormat(
 		 "\u20ac ###,###,##0.00" );
@@ -141,9 +138,9 @@ public class EmployeeSummaryDialog extends JDialog implements ActionListener {
 			 JLabel label = (JLabel) c;
 			 label.setHorizontalAlignment(JLabel.RIGHT);
 			 // format salary column
-			value = format.format((Number) value);
+			value = format.format(value);
 
 			return super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-		}// end getTableCellRendererComponent
-	}// DefaultTableCellRenderer
-}// end class EmployeeSummaryDialog
+		}
+	}
+}

@@ -24,7 +24,6 @@ import net.miginfocom.swing.MigLayout;
 
 public class AddRecordDialog extends JDialog implements ActionListener {
 
-	//TODO: made all private to protects the values and therefore private data of the employee/ proper encapsulation
 	private JTextField idField, ppsField, surnameField, firstNameField, salaryField;
 	private JComboBox<String> genderCombo, departmentCombo, fullTimeCombo;
 	private JButton save, cancel;

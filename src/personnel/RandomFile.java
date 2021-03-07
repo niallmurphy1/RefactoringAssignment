@@ -240,20 +240,18 @@ public class RandomFile {
 	}// end readRecords
 
 
-	//TODO: find out how this works with PPS exisiting etc.
 
 	// Check if PPS Number already in use
 	public boolean isPpsExist(String pps, long currentByteStart) {
 		RandomAccessEmployeeRecord record = new RandomAccessEmployeeRecord();
 		boolean ppsExist = false;
-		long oldByteStart = currentByteStart;
 		long currentByte = 0;
 
 		try {// try to read from file and look for PPS Number
 			// Start from start of file and loop until PPS Number is found or search returned to start position
 			while (currentByte != input.length() && !ppsExist) {
 				//if PPS Number is in position of current object - skip comparison
-				if (currentByte != oldByteStart) {
+				if (currentByte != currentByteStart) {
 					input.seek(currentByte);// Look for proper position in file
 					record.read(input);// Get record from file
 					// If PPS Number already exist in other record display message and stop search

@@ -563,7 +563,6 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 
 	// delete (make inactive - empty) record from file
 
-    //TODO: try to reduce nested ifs, use || and && operators
 	private void deleteRecord() {
 		if (isSomeoneToDisplay()) {// if any active record in file display
 									// message and delete record
@@ -798,10 +797,7 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 	// enable text fields for editing
 	public void setEnabled(boolean booleanValue) {
 		boolean search;
-		if (booleanValue)
-			search = false;
-		else
-			search = true;
+		search = !booleanValue;
 		ppsField.setEditable(booleanValue);
 		surnameField.setEditable(booleanValue);
 		firstNameField.setEditable(booleanValue);
@@ -1002,7 +998,9 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 		file = new File(generatedFileName);
 		// create file
 		application.createFile(file.getName());
-	}// end createRandomFile
+	}// end
+
+
 
 	// action listener for buttons, text field and menu items
 	public void actionPerformed(ActionEvent e) {
@@ -1031,10 +1029,7 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 			searchEmployeeById();
 		else if (e.getSource() == searchSurname || e.getSource() == searchBySurnameField)
 			searchEmployeeBySurname();
-		else if (e.getSource() == saveChange) {
-			if (checkInput() && !checkForChanges())
-				;
-		} else if (e.getSource() == cancelChange)
+		else if (e.getSource() == cancelChange)
 			cancelChange();
 		else if (e.getSource() == firstItem || e.getSource() == first) {
 			if (checkInput() && !checkForChanges()) {
